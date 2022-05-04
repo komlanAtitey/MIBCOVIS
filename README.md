@@ -1,188 +1,93 @@
-# Introduction
+title: "MUBCOVID"
+author: "Komlan Atitey, Benedict Anchang"
+date: '`r format(Sys.Date(), "%B %d, %Y")`'
+output:
+  md_document:
+    variant: markdown_github
+  bookdown::html_document2:
+    fig_caption: yes
+    theme: flatly
+    toc: yes
+    toc_depth: 2
+# bibliography: DSFMix.github.references.bib
+link-citations: yes
+---
 
-This page contains instructions about how to install, and run the R
-codes implementing the Dynamic Spanning Forest Mixtures (DSFMix), a
-novel pipeline to analyze single-cell (scRNA-seq or CyTOF) data
-collected at different time points, that produces a mixture of Minimum
-Spanning Trees (MSTs) as outputs. Given the nature of the single-cell
-experiments, it is also possible to just run DSFMix with single-cell
-data collected at a single time point.
-
-DSFMix uses decision-tree models to select markers (i.e. genes from
-scRNA-seq or antigenic proteins in the case of CyTOF) that account for
-variation in multimodality, skewness and time. These markers are
-subsequently used to build the forest (i.e. mixtures of trees), using
-tree agglomerative hierarchical clustering (THAC) and dynamic branch
-cutting. For further detail, please refer to our recent publication
-[Anchang et al.](#ref-anchang2022) ([2022](#ref-anchang2022)) .
-
-# Installation
-
-Clone this repository within a given folder on your local computer. Then
-follow the subsequent steps.
-
-## Windows users
-
-Prior to install the source package **spade** (provided as file
-**spade_1.0.0.tar.gz** within this repository), you need to install
-Rtools, which makes compiler and compiler utilities (such as *make*,
-*bash*, etc.) available to the R environment. Please refer to the
-instructions in CRAN regarding installation of
-[Rtools4](https://cran.r-project.org/bin/windows/Rtools/) that is
-required by \>R.4.0.0. For older versions of R, check also the
-corresponding versions of Rtools
-<https://cran.r-project.org/bin/windows/Rtools/history.html>.
-
-Once Rtools is installed, you need to add the location of Rtools
-utilities in the definition of your PATH, so that R can have access to
-them. This is done by re-defining your PATH in the **.Renviron** file
-that should be placed in your **Documents** folder. You can do this by
-either creating a text file with the new path or else, from the R
-console executing the following command (assuming Rtools4 is installed):
-
-``` r
-write('PATH="${RTOOLS40_HOME}\\usr\\bin;${PATH}"', file = "~/.Renviron", append = TRUE)
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
-The best way to test whether Rtools path has been added properly you
-your PATH, is to quit the current R session and upon restart, type:
+# MUBCOVID: A MUltiscale – MUltivariate - MUltilevel Benchmarking and Computational framework for Optimal Visualization and Interpretability of high-dimensional separable Data
 
-``` r
-Sys.which("make")
-## "C:\\rtools40\\usr\\bin\\make.exe" It should produce this answer
-## (unless another driver D,.. etc has been used)
-```
+** MUBCOVID uses a multivariate metric to assess five features characterizing the interpretability of projection in terms of fidelity of a good coverage, uniform spread of the projected data, preserving structure of the original dataset, time dependency of the projected data, and number of outliers of dense clusters. Specifically, it builds a moderation-effect multilevel Bayesian model for benchmarking the accuracy of various methods derived from the correlation of the above features.
 
-You are good to compile/install R source files (such as
-**spade_1.0.0.tar.gz**).
+** MUBCOVID benchmarks the performance of six major data reduction methods (major-DRMs): t-SNE, UMAP, PCA, Autoencoder (AE), SCVIS, and PHATE applied to visualize three different dynamic biological processes including the CyTOF EMT dataset, the scRNA-seq IPSC and spermatogenesis datasets. On the basis of the labeled set of the 3 datasets, MUBCOVID provides an additional label set of datasets by using the machine learning approach of semi-supervised learning. 
 
-## macOS users
+** MUBCOVID also establishes an optimized Variational Autoencoder (oVAE) as an optimal benchmarking method when the user is uncertain about which visualization feature to optimize in dimension reduction of single cell data.
 
-The installation script referred below should work “as is” on mac (it
-has been tested on macOS Catalina running R.4.1.0), but as note of
-caution, We must say that there is a problem with **misc3d** package.
-The current and recent versions of the package are able to install, BUT
-they do not load (at least on macOS Catalina running R.4.1.0, we have
-not tested in other macOS and/or R versions). As a result, the package
-**plot3D**, which is used within DSFMix pipeline and imports or depends
-on **misc3d**, cannot load, but DOES NOT produce any error message, it
-simply stalls the whole R session. In order to deal with this problem
-the installation script referred below, searches whether **misc3d** is
-installed, if so, then removes it, and then it installs the provided
-(much older copy of misc3d) **misc3d_0.8-4.tar.gz**. Once **misc3d**
-version **0.8-4** is installed, then **plot3D** can also be installed
-and loaded without any problem. If during the course of many package
-installation, the user is prompted for package update, it is recommended
-NOT TO DO, at least NOT TO update misc3d to the current version, because
-then this will make **plot3D** not to load.
+# A quick look to the MUBCOVID computational framework
 
-## Running the installation script install_DSFMix_dependencies.R
+**Stages in MUBCOVID model framework for optimal visualization and interpretability of dimensionality reduction methods.pdf**.
 
-Within a R console, assuming we have set our working directory in the
-same folder this repository has been cloned (in the example, it would be
-within the Documents folder, DSFMix subfolder), run
-**install_DSFMix_dependencies.R** script.
+**a** Six dimensionality reduction methods selected  spanning three different model classes (Linear, non-linear, and Neural Network) used by MUBCOVID on different types of data. All the three classes reduce the number of dimensions but in different ways and produce different visual outputs. 
 
-``` r
-setwd("~/DSFMix")
-source("install_DSFMix_dependencies.R")
-```
+**b** Metric set for data visualization and interpretability assessment. Five different quantitative metrics highlighted to evaluate and compare the performance of the DRMs for good visualization. 
 
-The latter command should install locally the packages needed to run
-DSFMix and their dependencies, all together \> 100.
+**c** MUBCOVID computational framework to quantify, compare, visualize and interpret reduced high-dimensional data. Y1, Y2, and Y3 stand respectively for accuracy scores in reducing the EMT, IPSC, and Spermatogenesis single cell data used in our study. 
 
-# Run DSFMix with sample data
+**Step 1** Evaluate the correlation between feature of metrics for a given accuracy Y_1, Y_2, or Y_3 of DRM. Based on the fact that the performance of methods vary according to the features of metrics, we define the accuracy of a method in reducing a high dimensional single cell data in terms of the dependency between the 5 features of the 5 metrics.
 
-If the installation step was completed successfully, we can proceed to
-run **DSFMix**.
+**Step 2** Bayesian multilevel modeling to describe the performance of a method for a choosen feature of a metric as conditional depending on the moderation effects of other features of metrics. MUBCOVID models the relationship between multiple independent or predictor variables (metric features) and one dependent or criterion variable (Accuracy of method defined independently by Y1, Y2, and Y3 respectively for the EMT, IPSC, and spermatogenesis single cell data). The multilevel design allows the multivariate  modeling of visualization performance at the same time, thus, taking complex dependency structures into account. 
 
-## Input Data
+**Step 3** Compute the posterior distribution of the conditional effect of a feature of metric on the performance of a method for a given accuracy and use the Markov Chain Monte Carlo (MCMC) sample to analyse the posterior distribution.
 
-As an example, we will run DSFMix using the scRNAs-seq data by Hoffman
-*et al.* [Hoffman et al.](#ref-hoffman_single-cell_2020)
-([2020](#ref-hoffman_single-cell_2020)) as input. The data represents
-the early transcriptional of response of A1-2 breast cancer cell lines
-after treatment with glucocorticoid dexamethasone (Dex). It consists of
-data from 2,400 cells and 32,049 genes taken during 6 time points. Cells
-with too many or two few expressed genes (+/- 2SD from the mean of total
-discovered genes or of toal UMIs counts), or cells with to high
-mitochondrial content (\>15%) were filtering out. The corresponding
-exression values have been normalized to total cellular read counts
-using the negative binomial regression method as implemented in R
-package [Seurat](https://satijalab.org/seurat/).
+**Step 4** Evaluate MCMC representativeness, accuracy, and efficiency on the basis of constructing 4 different chains affiliated to 4 different initial values and use a high density interval (HDI) to summarise the posterior distribution to enable performance comparison of DRMs in terms of different features of metrics.
 
-In addition to the scRNA-seq expression matrix (features x cells), we
-need an array with time point the same length as the number of cells
-(each element being the time at which each cell was collected), and a
-similar array of the same length as the number of cells, in which
-element corresond to the cluster id (typically by Seurat method) where
-this cell was classified. These clusters represent eventually the cell
-types.
 
-## Running DSFMix through the script feature dsfmix running code.R
+** MUBCOVID also establishes an optimized Variational Autoencoder (oVAE) as an optimal benchmarking method when the user is uncertain about which visualization feature to optimize in dimension reduction of single cell data.
 
-In the same R session, that has the working directory set up as above,
-then type:
+## Metric set for data visualization and interpretability assessment.
+We proposed 5 metrics with 5 different features to evaluate the performance of dimension reduction methods in terms of good visualization and interpretability. 
 
-``` r
-source("feature dsfmix running code.R")
-```
+### Separability index
+Feature of Presenting few outliers
 
-The latter should produce about 206 Mb of data (dpending on drive/OS):
+### Gradient boosting classifier index
+Feature of Minimum variance and bias
 
-``` bash
-33K       output/orig_spade/spadeforest/dendogramplots
-26M       output/orig_spade/spadeforest/pdf
-737K      output/orig_spade/spadeforest/tables/byAttribute
-1.5M      output/orig_spade/spadeforest/tables/bySample
-3.2M      output/orig_spade/spadeforest/tables/byNodeID
-5.3M      output/orig_spade/spadeforest/tables
-42M       output/orig_spade/spadeforest
-26M       output/orig_spade/pdf
-737K      output/orig_spade/tables/byAttribute
-1.5M      output/orig_spade/tables/bySample
-3.2M      output/orig_spade/tables/byNodeID
-5.3M      output/orig_spade/tables
-87M       output/orig_spade
-104M      output
-14M       enrichmentplotstimecluster
-5.2M      enrichmentplotscluster
-4.6M      enrichmentplotstime
-206M    
-```
+### Occupation index
+Feature of Good coverage of the 2-dimensional space
 
-# A quick look to the output by DSFMix
+### Uniformity index
+Feature of Visually separable of clusters in the 2-dimensional space
 
-Within **output folder**, **orig_spade/spadeforest** subfolder, there is
-the plot of the Dynamic Spade Forest (DSF), colored by the medians of
-the collected times within each node, file
-**downsampled.silclustered.fcs.anno.Rsave.medianstimeclust.pdf**.
+### Time order structure index
+Feature of time dependency of data points in the 2-dimensional space
 
-![](./hormone_DSF.medianstimeclust.png) And also, in the same folder the
-same DSF but now colored by the medians of the Seurat clusters.
+## Evaluate the moderation effect between features of metrics for good visualization
+Model the global relationships between metric features across various methods by assessing the correlation between features of metrics through Spearman correlation coefficient.
 
-![](./hormone_DSF.mediansseuratclust.png)
+## Bayesian multilevel modeling 
+MUBCOVID computational framework to quantify, compare, visualize and interpret reduced high-dimensional data.
 
-<div id="refs" class="references csl-bib-body hanging-indent">
+### brms for Bayesian Multilevel modelling
+Use the R package brms to model the relationship between the accuracy of a DRM in high dimension reduction and the moderation effect of features of metrics for good visualization and interpretability. Model the posterior distribution of the conditional effect of a feature of a metric on the performance of a DRM in dimension reduction.
 
-<div id="ref-anchang2022" class="csl-entry">
+### MCMC representativeness and accuracy of the posterior distribution
+The posterior distribution represents uncertainty in the visualization and interpretability performance metric of a given data reduction method. 
 
-Anchang, Benedict, Raul Mendez-Giraldez, Xiaojiang Xu, Trevor K Archer,
-Qing Chen, Guang Hu, Sylvia K Plevritis, Alison Anne Motsinger-Reif, and
-Jian-Liang Li. 2022. “<span class="nocase">Visualization, benchmarking
-and characterization of nested single-cell heterogeneity as dynamic
-forest mixtures</span>.” *Briefings in Bioinformatics* 23 (2).
-<https://doi.org/10.1093/bib/bbac017>.
+-	Use the Markov Chain Monte Carlo (MCMC) sample to analyze the posterior distribution. 
+-	Evaluate MCMC representativeness, accuracy, and efficiency on the basis of constructing 4 different chains affiliated to 4 different initial values.
+-	Use a high-density interval (HDI) to summarize the posterior distribution to enable performance comparison of DRMs in terms of different features of metrics.
 
-</div>
+### Average performance of DRMs
+compute the average performance of DRMs in terms of the 3 different single cell data used
 
-<div id="ref-hoffman_single-cell_2020" class="csl-entry">
+### Variability of clusters
+Make use of variability of cluster centroids which is a robust location measure representing the center of the cluster. Comparing variance of clusters enable the evaluation of how far apart the centroids of the clusters in the reduced 2D space are from one another since high variance displays good separation between clusters.
 
-Hoffman, J. A., B. N. Papas, K. W. Trotter, and T. K. Archer. 2020.
-“Single-Cell RNA Sequencing Reveals a Heterogeneous Response to
-Glucocorticoids in Breast Cancer Cells.” *Commun Biol* 3 (1): 126.
-<https://doi.org/10.1038/s42003-020-0837-0>.
+-	Normalize reduced 2D output data from a given DRM through the Min-Max Scaling method 
+-	Weigh variances of centroids
 
-</div>
-
-</div>
+### Semi supervised learning
+Labeling approach of svm as base classifier
