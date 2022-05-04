@@ -54,10 +54,9 @@ Feature of time dependency of data points in the 2-dimensional space
 Model the global relationships between metric features across various methods by assessing the correlation between features of metrics through Spearman correlation coefficient.
 
 ## Bayesian multilevel modeling 
-MUBCOVID computational framework to quantify, compare, visualize and interpret reduced high-dimensional data.
+Posterior distribution describes the relationship between the accuracy of a DRM in high dimension reduction and the moderation effect of features of metrics for good visualization and interpretability. 
 
-### brms for Bayesian Multilevel modelling
-Use the R package brms to model the relationship between the accuracy of a DRM in high dimension reduction and the moderation effect of features of metrics for good visualization and interpretability. Model the posterior distribution of the conditional effect of a feature of a metric on the performance of a DRM in dimension reduction.
+Model the posterior distribution of the conditional effect of a feature of a metric on the performance of a DRM in dimension reduction. 
 
 ### MCMC representativeness and accuracy of the posterior distribution
 The posterior distribution represents uncertainty in the visualization and interpretability performance metric of a given data reduction method. 
