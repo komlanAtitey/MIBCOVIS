@@ -9,7 +9,7 @@
 
 # A quick look to the MUBCOVID computational framework
 
-![plot](./Documents/Manuscript_1/Review_2/Figure_manuscript/Fig_1.png)
+
 
 **Stages in MUBCOVID model framework for optimal visualization and interpretability of dimensionality reduction methods.pdf**.
 
