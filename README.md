@@ -9,6 +9,8 @@
 
 # A quick look to the MUBCOVID computational framework
 
+![plot](./Documents/Manuscript_1/Review_2/Figure_manuscript/Fig_1.png)
+
 **Stages in MUBCOVID model framework for optimal visualization and interpretability of dimensionality reduction methods.pdf**.
 
 **a/** Six dimensionality reduction methods selected  spanning three different model classes (Linear, non-linear, and Neural Network) used by MUBCOVID on different types of data. All the three classes reduce the number of dimensions but in different ways and produce different visual outputs. 
