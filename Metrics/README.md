@@ -1,1 +1,1 @@
-
+We typically use clustering accuracy metrics to evaluate the performance of data reduction methods in single-cell analysis.  However, these metrics are not fully effective at accounting for the observed variability driving the differences in visual aesthetics and interpretability after data reduction of temporal processes.
