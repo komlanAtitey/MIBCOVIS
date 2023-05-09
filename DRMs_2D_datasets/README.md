@@ -12,7 +12,6 @@ It comprises 50,000 cells collected from 12 time points over 21 days, investigat
 It includes approximately 110,000 cells from 16 postnatal stages during spermatogenesis. These cells are associated with 29 clusters derived from 174 significant genes driving spermatogenesis35. 
 
 
-
 ## Output data of the DRMs
 
 **emt_aedat_SL** is the output data of using the autoencoder (AE) method to reduce the emt single-cell data through supervised learning (SL).
