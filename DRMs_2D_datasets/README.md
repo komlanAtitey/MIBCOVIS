@@ -10,3 +10,18 @@ It comprises 50,000 cells collected from 12 time points over 21 days, investigat
 
 **Dataset 3: Spermatogenesis.**
 It includes approximately 110,000 cells from 16 postnatal stages during spermatogenesis. These cells are associated with 29 clusters derived from 174 significant genes driving spermatogenesis35. 
+
+
+
+## Output data of the DRMs
+
+**emt_aedat_SL** is the output data of using the autoencoder (AE) method to reduce the emt single-cell data through supervised learning (SL)
+**emt_pcadat_SL** is the output data of using the tsne method to reduce the emt single-cell data through supervised learning (SL)
+**emt_phatedat_SL** is the output data of using the phate method to reduce the emt single-cell data through supervised learning (SL)
+**emt_scvisdat_SL** is the output data of using the scvis method to reduce the emt single-cell data through supervised learning (SL)
+**emt_tsnedat_SL** is the output data of using the tsne method to reduce the emt single-cell data through supervised learning (SL)
+**emt_umapdat_SL** is the output data of using the umap method to reduce the emt single-cell data through supervised learning (SL)
+
+## data identifying the population of clusters
+
+**emt_data_SL** for the emt data SL 
