@@ -15,28 +15,45 @@ It includes approximately 110,000 cells from 16 postnatal stages during spermato
 ## Output data of the DRMs
 
 **emt_aedat_SL** is the output data of using the autoencoder (AE) method to reduce the emt single-cell data through supervised learning (SL).
+
 **emt_pcadat_SL** is the output data of using the tsne method to reduce the emt single-cell data through supervised learning (SL)
+
 **emt_phatedat_SL** is the output data of using the phate method to reduce the emt single-cell data through supervised learning (SL)
+
 **emt_scvisdat_SL** is the output data of using the scvis method to reduce the emt single-cell data through supervised learning (SL)
+
 **emt_tsnedat_SL** is the output data of using the tsne method to reduce the emt single-cell data through supervised learning (SL)
+
 **emt_umapdat_SL** is the output data of using the umap method to reduce the emt single-cell data through supervised learning (SL)
 
 **ipsc_aedat_SL** is the output data of using the autoencoder (AE) method to reduce the ipsc single-cell data through supervised learning (SL).
+
 **ipsc_pcadat_SL** is the output data of using the tsne method to reduce the ipsc single-cell data through supervised learning (SL)
+
 **ipsc_phatedat_SL** is the output data of using the phate method to reduce the ipsc single-cell data through supervised learning (SL)
+
 **ipsc_scvisdat_SL** is the output data of using the scvis method to reduce the ipsc single-cell data through supervised learning (SL)
+
 **ipsc_tsnedat_SL** is the output data of using the tsne method to reduce the ipsc single-cell data through supervised learning (SL)
+
 **ipsc_umapdat_SL** is the output data of using the umap method to reduce the ipsc single-cell data through supervised learning (SL)
 
 **sperm_aedat_SL** is the output data of using the autoencoder (AE) method to reduce the sperm single-cell data through supervised learning (SL).
+
 **sperm_pcadat_SL** is the output data of using the tsne method to reduce the sperm single-cell data through supervised learning (SL)
+
 **sperm_phatedat_SL** is the output data of using the phate method to reduce the sperm single-cell data through supervised learning (SL)
+
 **sperm_scvisdat_SL** is the output data of using the scvis method to reduce the sperm single-cell data through supervised learning (SL)
+
 **sperm_tsnedat_SL** is the output data of using the tsne method to reduce the sperm single-cell data through supervised learning (SL)
+
 **sperm_umapdat_SL** is the output data of using the umap method to reduce the sperm single-cell data through supervised learning (SL)
 
 ## data identifying the population of clusters
 
 **groups_emt** for the emt data SL 
+
 **groups_ipsc** for the ipsc data SL 
+
 **groups_sperm** for the sperm data SL 
