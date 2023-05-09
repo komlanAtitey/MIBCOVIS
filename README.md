@@ -1,19 +1,21 @@
 
-# MUBCOVID: A MUltiscale – MUltivariate - MUltilevel Benchmarking and Computational framework for Optimal Visualization and Interpretability of high-dimensional separable Data
+# Benchmarking Spatiotemporal Data Reduction models with Unknown Ground Truth using Optimal Visualization and Interpretability Metrics 
 
-**MUBCOVID uses a multivariate metric to assess five features characterizing the interpretability of projection in terms of fidelity of a good coverage, uniform spread of the projected data, preserving structure of the original dataset, time dependency of the projected data, and number of outliers of dense clusters. Specifically, it builds a moderation-effect multilevel Bayesian model for benchmarking the accuracy of various methods derived from the correlation of the above features.**
+**MIBCOVIS: Multivariate Interpretable Benchmarking and COmputational framework for optimal Visualization and Interpretability of high-dimensional separable data with and without ground truth** 
 
-**MUBCOVID benchmarks the performance of six major data reduction methods (major-DRMs): t-SNE, UMAP, PCA, Autoencoder (AE), SCVIS, and PHATE applied to visualize three different dynamic biological processes including the CyTOF EMT dataset, the scRNA-seq IPSC and spermatogenesis datasets. On the basis of the labeled set of the 3 datasets, MUBCOVID provides an additional label set of datasets by using the machine learning approach of semi-supervised learning.** 
+**MIBCOVIS uses a multivariate metric to assess five features characterizing the interpretability of projection in terms of fidelity of a good coverage, uniform spread of the projected data, preserving structure of the original dataset, time dependency of the projected data, and number of outliers of dense clusters. Specifically, it builds a moderation-effect multilevel Bayesian model for benchmarking the accuracy of various methods derived from the correlation of the above features.**
 
-**MUBCOVID also establishes an optimized Variational Autoencoder (oVAE) as an optimal benchmarking method when the user is uncertain about which visualization feature to optimize in dimension reduction of single cell data.**
+**MIBCOVIS benchmarks the performance of six major data reduction methods (major-DRMs): t-SNE, UMAP, PCA, Autoencoder (AE), SCVIS, and PHATE applied to visualize three different dynamic biological processes including the CyTOF EMT dataset, the scRNA-seq IPSC and spermatogenesis datasets. On the basis of the labeled set of the 3 datasets, MIBCOVIS provides an additional label set of datasets by using the machine learning approach of semi-supervised learning.** 
 
-# A quick look to the MUBCOVID computational framework
+**MIBCOVIS also establishes an optimized Variational Autoencoder (oVAE) as an optimal benchmarking method when the user is uncertain about which visualization feature to optimize in dimension reduction of single cell data.**
+
+# A quick look to the MIBCOVIS computational framework
 
 ![](figure/Fig_1.png)
 
 $~~$
 
-## Stages in MUBCOVID model framework for optimal visualization and interpretability of dimensionality reduction methods.
+## Stages in MIBCOVIS model framework for optimal visualization and interpretability of dimensionality reduction methods.
 
 **a/** Six dimensionality reduction methods selected  spanning three different model classes (Linear, non-linear, and Neural Network) used by MUBCOVID on different types of data. All the three classes reduce the number of dimensions but in different ways and produce different visual outputs. 
 
