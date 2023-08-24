@@ -9,7 +9,7 @@ $~~$
 
 **MIBCOVIS benchmarks the performance of six major linear, non-linear and neural network data reduction methods (DRMs): t-SNE, UMAP, PCA, Autoencoder (AE), SCVIS, and PHATE applied to visualize three different dynamic biological processes including the CyTOF EMT dataset, the scRNA-seq IPSC and spermatogenesis datasets. On the basis of the labeled set of the 3 datasets, MIBCOVIS provides an additional label set of datasets by using the machine learning approach of semi-supervised learning.** 
 
-**MIBCOVIS also establishes an optimized Variational Autoencoder (oVAE) as an optimal benchmarking method when the user is uncertain about which visualization feature to optimize in dimension reduction of single cell data.**
+**MIBCOVIS also establishes an optimized Variational Contractive Autoencoder (oVAE) as an optimal benchmarking method when the user is uncertain about which visualization feature to optimize in dimension reduction of single cell data.**
 
 # A quick look to the MIBCOVIS computational framework
 
