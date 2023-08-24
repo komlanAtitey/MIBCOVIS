@@ -1,9 +1,9 @@
 
-# Benchmarking Spatiotemporal Data Reduction models with Unknown Ground Truth using Optimal Visualization and Interpretability Metrics 
+# Model-based Evaluation of Spatiotemporal Data Reduction Methods with Unknown Ground Truth through Optimal Visualization and Interpretability Metrics 
 
 $~~$
 
-## MIBCOVIS: Multivariate Interpretable Benchmarking and COmputational framework for optimal Visualization and Interpretability of high-dimensional separable data with and without ground truth. 
+## MIBCOVIS: Multivariate Interpretable Benchmarking and COmputational framework for optimal Visualization and Interpretability of high-dimensional stochastic data without ground truth. 
 
 **MIBCOVIS uses a multivariate metric to assess five features characterizing the interpretability of projection in terms of fidelity of a good coverage, uniform spread of the projected data, preserving structure of the original dataset, time dependency of the projected data, and number of outliers of dense clusters. Specifically, it builds a moderation-effect multilevel Bayesian model for benchmarking the accuracy of various methods derived from the correlation of the above features.**
 
