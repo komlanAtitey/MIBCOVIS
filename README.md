@@ -13,7 +13,7 @@ $~~$
 
 # A quick look to the MIBCOVIS computational framework
 
-![](figure/Fig_1.png)
+![](figure/Figure_4.png)
 
 $~~$
 
