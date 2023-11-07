@@ -13,7 +13,7 @@ $~~$
 
 **MIBCOVIS also establishes an optimized Variational Contractive Autoencoder (oVAE) as an optimal benchmarking method when the user is uncertain about which visualization feature to optimize in dimension reduction of single cell data.**
 
-# A quick look to the MIBCOVIS computational framework
+# A quick look at the MIBCOVIS computational framework
 
 ![](figure/Figure_4.png)
 
